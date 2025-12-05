@@ -1,0 +1,364 @@
+@charset "UTF-8";
+body {
+  background-color: #120F2F;
+}
+
+.img_logo {
+  height: 182px;
+  width: 122px;
+}
+
+#text {
+  height: 250px;
+  width: 250px;
+}
+
+#my-textarea {
+  resize: none;
+  height: 450px;
+  width: 75%;
+  border-radius: 20px;
+  padding: 20px;
+  margin-left: 170px;
+  margin-top: 15px;
+  background-color: #686868;
+  color: azure;
+}
+
+#my-textarea::placeholder {
+  color: azure;
+}
+
+.btn_otp {
+  width: 20%;
+  height: 40px;
+  background-color: #1500FF;
+  top: 90%;
+  left: 20%;
+  position: absolute;
+  border-radius: 12px;
+  color: azure;
+  font-weight: bold;
+  border: 1px solid #1500FF;
+}
+
+.btn_dolw {
+  width: 20%;
+  height: 40px;
+  background-color: #1500FF;
+  top: 90%;
+  left: 60%;
+  position: absolute;
+  border-radius: 12px;
+  color: azure;
+  font-weight: bold;
+  background-color: #5900FF;
+  border: 1px solid #5900FF;
+}
+
+.fon_box img {
+  height: 542px;
+  width: 450px;
+  z-index: 1;
+}
+
+.fon_box {
+  height: 542px;
+  width: 450px;
+  z-index: 1;
+  position: relative;
+  margin-top: 30px;
+  margin-left: auto;
+}
+.fon_box.mirrored img {
+  transform: scaleX(-1);
+}
+.fon_box.mirrored .str_fam {
+  left: 18% !important;
+}
+
+@font-face {
+  font-family: "MyCustomFont";
+  src: url("../../font/font.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+.str_fam {
+  font-family: "MyCustomFont";
+  color: rgb(0, 59, 198);
+  font-size: 25px;
+  z-index: 2;
+  position: absolute;
+  line-height: 0.5;
+  width: 83%;
+  height: var(--str-height, 100%);
+  left: 3%;
+  top: 0.5%;
+  overflow: hidden;
+}
+
+.pages {
+  position: absolute;
+  top: 100%;
+  left: 12%;
+  display: flex;
+  flex-direction: row; /* страницы идут вниз */
+  flex-wrap: wrap; /* ← ВАЖНО! включает перенос */
+  gap: 30px; /* расстояние между страницами */
+  width: 100%; /* чтобы была строка */
+  max-width: 1000px; /* чтобы 2 страницы точно помещались */
+}
+
+.font_famel_label {
+  color: azure;
+  font-size: 17px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column; /* элементы идут сверху вниз */
+  width: max-content; /* чтобы не растягивалось */
+  margin-left: 19%;
+  margin-bottom: 0.5%;
+  margin-top: -100px;
+}
+
+#font_famel {
+  color: azure;
+  font-size: 17px;
+  font-weight: bold;
+  background-color: #343434;
+  height: 47px;
+  width: 12%;
+  border-radius: 10px;
+  border: 1px solid #343434;
+  margin-left: 15%;
+}
+
+.font_size_label {
+  color: azure;
+  font-size: 17px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column; /* элементы идут сверху вниз */
+  width: max-content; /* чтобы не растягивалось */
+  margin-left: 34%;
+  margin-bottom: 0%;
+  margin-top: -100px;
+  top: 25px;
+  position: relative;
+}
+
+#font_size_famel {
+  color: azure;
+  font-size: 17px;
+  font-weight: bold;
+  background-color: #343434;
+  height: 47px;
+  width: 12%;
+  border-radius: 10px;
+  border: 1px solid #343434;
+  margin-left: 30%;
+  margin-top: 2.2%;
+}
+
+.slider {
+  -webkit-appearance: none; /* убираем стандартный стиль */
+  width: 300px;
+  height: 8px;
+  background: #444;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  margin-left: 10%;
+}
+
+/* Ползунок */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #2B00FF;
+  border: 2px solid white;
+  cursor: grab;
+}
+
+/* Ползунок при нажатии */
+.slider::-webkit-slider-thumb:active {
+  cursor: grabbing;
+  background: #0099cc;
+}
+
+/* Для Firefox */
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #00ccff;
+  border: 2px solid white;
+  cursor: grab;
+}
+
+.slider::-moz-range-track {
+  background: #444;
+  height: 8px;
+  border-radius: 5px;
+}
+
+#ur {
+  position: absolute;
+  right: 1%;
+  text-decoration: none;
+}
+
+/* Планшеты и большие экраны (до 1024px) */
+@media (max-width: 1024px) {
+  .img_logo {
+    height: 120px;
+    width: 80px;
+  }
+  #my-textarea {
+    width: 85%;
+    height: 300px;
+    margin-left: 50px;
+    padding: 15px;
+  }
+  .slider {
+    width: 250px;
+    margin-left: 5%;
+  }
+  .pages {
+    left: 5%;
+    max-width: 600px;
+    gap: 20px;
+  }
+  .fon_box {
+    height: 400px;
+    width: 350px;
+    margin-top: 20px;
+  }
+  .fon_box img {
+    height: 400px;
+    width: 350px;
+  }
+  .str_fam {
+    font-size: 18px;
+    width: 85%;
+    height: 100%;
+  }
+  .btn_otp, .btn_dolw {
+    width: 25%;
+    height: 35px;
+    font-size: 12px;
+  }
+}
+/* Телефоны (до 768px) */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  .img_logo {
+    height: 100px;
+    width: 67px;
+  }
+  #my-textarea {
+    width: 100%;
+    height: 200px;
+    margin-left: 0;
+    padding: 12px;
+    font-size: 14px;
+  }
+  .slider {
+    width: 200px;
+    margin-left: 0;
+    margin-bottom: 15px;
+  }
+  .pages {
+    position: relative;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    gap: 15px;
+    margin-top: 30px;
+    width: auto;
+  }
+  .fon_box {
+    height: 300px;
+    width: 280px;
+    margin: 0 auto;
+    margin-top: 15px;
+  }
+  .fon_box img {
+    height: 300px;
+    width: 280px;
+  }
+  .str_fam {
+    font-size: 14px;
+    width: 90%;
+    height: 90%;
+    left: 5%;
+    line-height: 0.6;
+  }
+  .btn_otp, .btn_dolw {
+    width: 45%;
+    height: 40px;
+    font-size: 14px;
+    position: relative;
+    display: inline-block;
+    margin: 5px;
+    top: auto;
+    left: auto;
+  }
+  .btn_dolw {
+    left: 28%;
+  }
+  #myForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .font_famel_label, .font_size_label {
+    display: none;
+  }
+  #font_famel, #font_size_famel {
+    display: none;
+  }
+}
+/* Маленькие телефоны (до 480px) */
+@media (max-width: 480px) {
+  .img_logo {
+    height: 80px;
+    width: 54px;
+  }
+  #my-textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    font-size: 12px;
+  }
+  .slider {
+    width: 150px;
+  }
+  .fon_box {
+    height: 250px;
+    width: 220px;
+  }
+  .fon_box img {
+    height: 250px;
+    width: 220px;
+  }
+  .str_fam {
+    font-size: 12px;
+    line-height: 0.7;
+  }
+  .btn_otp, .btn_dolw {
+    width: 40%;
+    height: 35px;
+    font-size: 12px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
