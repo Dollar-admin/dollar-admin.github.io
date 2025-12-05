@@ -1,0 +1,25 @@
+{
+  "name": "Геката",
+  "short_name": "Геката",
+  "description": "Приложение для создания текста на фоне",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#120F2F",
+  "theme_color": "#1500FF",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./image/icon.jpg",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./image/icon.jpg",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

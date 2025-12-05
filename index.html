@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./image/Designer.png">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="apple-touch-icon" href="./image/Designer.png">
+    <meta name="theme-color" content="#1500FF">
+    <meta name="description" content="Приложение для создания текста на фоне">
+    <script src="./js/dolwad.js"></script>
+    <link rel="stylesheet" href="./style/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <title>Геката</title>
+</head>
+<body>
+    
+    <a href="https://rt.pornhub.com/"><img src="./image/hecata.png" alt="logo" class="img_logo"></a>
+    <a href="https://fontpainter.com/ru" id="ur">Создать Шрифт</a>
+
+
+    
+    
+    <input type="range" id="range1" min="100" max="250" value="100" class="slider">
+
+
+    <form id="myForm">
+      
+      <textarea id="my-textarea" name="my-textarea" rows="10" cols="50" placeholder="Ведите текст"></textarea>
+      <br>
+      
+      <button type="submit" class="btn_otp">
+        Создать
+      </button>
+      
+    </form>
+
+   
+    
+    <button type="submit" class="btn_dolw">
+        Сохранить
+    </button>
+
+    <div class="pages" id="pages">
+      <!-- <div class="pages-wrapper">
+        <div class="fon_box page">
+          <p class="str_fam" id="str_fam"></p>
+          <img src="./image/fon.jpg" alt="fon">
+        </div>
+      </div> -->
+    </div>
+    
+    <script src="./js/script.js"></script>
+    <script>
+      document.querySelector(".btn_dolw").addEventListener("click", async function() {
+          const pages = document.querySelectorAll(".fon_box");
+          const zip = new JSZip();
+            
+          let index = 1;
+            
+          for (let page of pages) {
+              // создаём скриншот DIV-а
+              const canvas = await html2canvas(page, {
+                  backgroundColor: null,
+                  scale: 2   // качество
+              });
+            
+              // получаем JPEG в base64
+              const jpegData = canvas.toDataURL("image/jpeg", 0.95);
+            
+              // убираем префикс data:image/jpeg...
+              const base64 = jpegData.split(',')[1];
+            
+              // добавляем в zip
+              zip.file(`page_${index}.jpg`, base64, { base64: true });
+            
+              index++;
+          }
+        
+          // создаём архив
+          zip.generateAsync({ type: "blob" }).then(function(blob) {
+              saveAs(blob, "pages.zip");
+          });
+      });
+    </script>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./service-worker.js')
+          .then(reg => console.log('Service Worker зарегистрирован'))
+          .catch(err => console.log('Service Worker ошибка:', err));
+      }
+    </script>
+
+</body>
+</html>
